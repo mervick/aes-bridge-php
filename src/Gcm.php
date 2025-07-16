@@ -55,7 +55,7 @@ class Gcm implements EncryptionInterface
      * @return string Encrypted data in the format: salt (16 bytes) + nonce (12 bytes) +
      * ciphertext (variable length) + tag (16 bytes).
      */
-    function encryptBin(string $plaintext, string $password): string {
+    public static function encryptBin(string $plaintext, string $password): string {
         $salt = Utils::generate_random(16);
         $nonce = Utils::generate_random(12);
         $key = derive_key($password, $salt);
@@ -74,7 +74,7 @@ class Gcm implements EncryptionInterface
      * @param string $password Encryption password (string or binary).
      * @return string Decrypted data.
      */
-    function decryptBin(string $data, string $password): string {
+    public static function decryptBin(string $data, string $password): string {
         $salt = substr($data, 0, 16);
         $nonce = substr($data, 16, 12);
         $tag = substr($data, -16);
