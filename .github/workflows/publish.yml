@@ -15,3 +15,30 @@ jobs:
             -u "${{ secrets.PACKAGIST_USERNAME }}:${{ secrets.PACKAGIST_TOKEN }}" \
             -H "Content-Type: application/json" \
             -d '{"repository":"https://github.com/mervick/aes-bridge-php"}'
+
+
+
+name: Update Packagist Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Send Packagist Update Request
+      env:
+        PACKAGIST_API_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
+        PACKAGIST_USERNAME: ${{ secrets.PACKAGIST_USERNAME }}
+        PACKAGIST_PACKAGE_URL: ${{ github.repositoryUrl }}
+      run: |
+        curl -XPOST -H'content-type:application/json' \
+          "https://packagist.org/api/update-package?username=${{ secrets.PACKAGIST_USERNAME }}&apiToken=${{ secrets.PACKAGIST_TOKEN }}" \
+          -d"{\"repository\":{\"url\":\"${{ env.PACKAGIST_PACKAGE_URL }}\"}}"
