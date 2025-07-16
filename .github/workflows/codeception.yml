@@ -25,9 +25,8 @@ jobs:
 
       - name: Fix Gherkin i18n.php path issue
         run: |
-            cp vendor/behat/gherkin/src/Behat/Gherkin/i18n.php vendor/behat/gherkin/i18n.php
-            cp vendor/behat/gherkin/src/Behat/Gherkin/i18n.php vendor/behat/i18n.php
-            cp vendor/behat/gherkin/src/Behat/Gherkin/i18n.php vendor/i18n.php
+            cp vendor/behat/gherkin/i18n.php vendor/behat/i18n.php
+            cp vendor/behat/gherkin/i18n.php vendor/i18n.php
 
       - name: Run Codeception tests
         run: vendor/bin/codecept run unit
