@@ -1,13 +1,16 @@
 name: Update Packagist Package
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 
 jobs:
-  update:
+  deploy:
     runs-on: ubuntu-latest
+
+    environment:
+      name: packagist
+      url: https://packagist.org/packages/mervick/aes-bridge
 
     steps:
     - name: Checkout repository
