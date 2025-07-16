@@ -1,0 +1,32 @@
+{
+    "name": "mervick/aes-bridge",
+    "description": "AesBridge is a modern, secure, and cross-language AES encryption library",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AesBridge\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AesBridge\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrey Izman",
+            "email": "izmanw@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "codeception/codeception": "^4.2@beta",
+        "codeception/module-phpbrowser": "^1.0.0",
+        "codeception/module-asserts": "^1.0.0"
+    },
+    "require": {
+        "ext-openssl": "*"
+    }
+}
