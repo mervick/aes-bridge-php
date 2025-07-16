@@ -17,4 +17,4 @@ jobs:
       run: |
         curl -XPOST -H'content-type:application/json' \
           "https://packagist.org/api/update-package?username=${{ secrets.PACKAGIST_USERNAME }}&apiToken=${{ secrets.PACKAGIST_TOKEN }}" \
-          -d'{"repository":{"url":"https://github.com/mervick/aes-bridge-php"}}''
+          -d'{"repository":{"url":"https://github.com/mervick/aes-bridge-php"}}'
