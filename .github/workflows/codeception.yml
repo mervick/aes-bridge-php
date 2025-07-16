@@ -21,7 +21,13 @@ jobs:
           coverage: none
 
       - name: Install dependencies
-        run: composer install --no-progress
+        run: composer install --no-progress --prefer-dist
+
+      - name: Fix Gherkin i18n.php path issue
+        run: |
+            cp vendor/behat/gherkin/src/Behat/Gherkin/i18n.php vendor/behat/gherkin/i18n.php
+            cp vendor/behat/gherkin/src/Behat/Gherkin/i18n.php vendor/behat/i18n.php
+            cp vendor/behat/gherkin/src/Behat/Gherkin/i18n.php vendor/i18n.php
 
       - name: Run Codeception tests
         run: vendor/bin/codecept run unit
