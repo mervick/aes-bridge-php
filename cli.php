@@ -7,8 +7,6 @@ use AesBridge\Cbc;
 use AesBridge\Gcm;
 use AesBridge\Legacy;
 
-class ValueError extends Exception {}
-
 
 // --- CLI Parsing Logic ---
 $options = [
@@ -81,7 +79,7 @@ try {
     if ($options['action'] === 'encrypt') {
         $data_to_process = $options['b64'] ? base64_decode($data_input) : $data_input;
         if ($data_to_process === false) {
-            throw new ValueError('Failed to base64 decode input data.');
+            throw new Exception('Failed to base64 decode input data.');
         }
 
         switch ($options['mode']) {
@@ -114,9 +112,6 @@ try {
 
     echo $result . "\n";
 
-} catch (ValueError $e) {
-    fwrite(STDERR, "Error: " . $e->getMessage() . "\n");
-    exit(1);
 } catch (Exception $e) {
     fwrite(STDERR, "An unexpected error occurred: " . $e->getMessage() . "\n");
     exit(1);
