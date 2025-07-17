@@ -106,7 +106,7 @@ try {
                 $result = $options['b64'] ? base64_encode($decrypted) : $decrypted;
                 break;
             case 'legacy':
-                $decrypted = Legacy::decrypt($decoded_data, $options['passphrase']);
+                $decrypted = Legacy::decrypt($data_input, $options['passphrase']);
                 $result = $options['b64'] ? base64_encode($decrypted) : $decrypted;
                 break;
         }
