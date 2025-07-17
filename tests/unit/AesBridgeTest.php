@@ -51,7 +51,7 @@ class AesBridgeTest extends Unit
         $data = self::readData();
         $return = [];
 
-        foreach ($data['tests'] as $case) {
+        foreach ($data['decrypt'] as $case) {
             $return[] = [
                 $case['id'],
                 $case['plaintext'] ?? hex2bin($case['hex']),
