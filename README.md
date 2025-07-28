@@ -1,7 +1,7 @@
 # AesBridge PHP
 
-![Packagist Version](https://img.shields.io/packagist/v/mervick/aes-bridge.svg)
-![CI Status](https://github.com/mervick/aes-bridge-php/actions/workflows/codeception.yml/badge.svg)
+[![Packagist Version](https://img.shields.io/packagist/v/mervick/aes-bridge.svg)](https://packagist.org/packages/mervick/aes-bridge)
+[![CI Status](https://github.com/mervick/aes-bridge-php/actions/workflows/codeception.yml/badge.svg)](https://github.com/mervick/aes-bridge-php/actions/workflows/codeception.yml)
 
 **AesBridge** is a modern, secure, and cross-language **AES** encryption library. It offers a unified interface for encrypting and decrypting data across multiple programming languages. Supports **GCM**, **CBC**, and **legacy AES Everywhere** modes.
 
